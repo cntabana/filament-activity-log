@@ -2,10 +2,10 @@
 
 namespace pxlrbt\FilamentActivityLog;
 
-use Filament\PluginServiceProvider;
+use Filament\PackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 
-class FilamentActivityLogServiceProvider extends PluginServiceProvider
+class FilamentActivityLogServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-activity-log';
 
