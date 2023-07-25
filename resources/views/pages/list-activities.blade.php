@@ -22,42 +22,43 @@
 
                 <x-filament::hr />
 
-                <x-tables::table class="w-full overflow-hidden text-sm">
+                <x-filament-tables::table class="w-full overflow-hidden text-sm">
                     <x-slot:header>
-                        <x-tables::header-cell>
+                        <x-filament-tables::header-cell>
                             @lang('filament-activity-log::activities.table.field')
-                        </x-tables::header-cell>
-                        <x-tables::header-cell>
+                        </x-filament-tables::header-cell>
+                        <x-filament-tables::header-cell>
                             @lang('filament-activity-log::activities.table.old')
-                        </x-tables::header-cell>
-                        <x-tables::header-cell>
+                        </x-filament-tables::header-cell>
+                        <x-filament-tables::header-cell>
                             @lang('filament-activity-log::activities.table.new')
-                        </x-tables::header-cell>
+                        </x-filament-tables::header-cell>
                     </x-slot:header>
                         @php
                             /* @var \Spatie\Activitylog\Models\Activity $activityItem */
                             $changes = $activityItem->getChangesAttribute();
                         @endphp
-                        @foreach(data_get($changes, 'attributes') as $field => $change)
-                            <x-tables::row @class(['bg-gray-100/30' => $loop->even])>
-                                <x-tables::cell width="20%" class="px-4 py-2 align-top">
-                                    {{ $this->getFieldLabel($field) }}
-                                </x-tables::cell>
-                                <x-tables::cell width="40%" class="px-4 py-2 align-top break-all !whitespace-normal">
+                        @foreach(data_get($changes, 'attributes',[]) as $field => $change)
+                            <x-filament-tables::row @class(['bg-gray-100/30' => $loop->even])>
+                                <x-filament-tables::cell width="20%" class="px-4 py-2 align-top">
+                                    {{ $field}}
+                                    {{-- {{ $this->getFieldLabel($field) }} --}}
+                                </x-filament-tables::cell>
+                                <x-filament-tables::cell width="40%" class="px-4 py-2 align-top break-all !whitespace-normal">
                                     {{ data_get($changes, "old.{$field}") }}
-                                </x-tables::cell>
-                                <x-tables::cell width="40%" class="px-4 py-2 align-top break-all !whitespace-normal">
+                                </x-filament-tables::cell>
+                                <x-filament-tables::cell width="40%" class="px-4 py-2 align-top break-all !whitespace-normal">
                                     {{ data_get($changes, "attributes.{$field}") }}
-                                </x-tables::cell>
-                            </x-tables::row>
+                                </x-filament-tables::cell>
+                            </x-filament-tables::row>
                         @endforeach
-                </x-tables::table>
+                </x-filament-tables::table>
             </div>
         @endforeach
 
-        <x-tables::pagination
+        <x-filament-tables::pagination
             :paginator="$this->getActivities()"
-            :records-per-page-select-options="$this->getTableRecordsPerPageSelectOptions()"
+            :page-options="$this->getTableRecordsPerPageSelectOptions()"
         />
     </div>
 </x-filament::page>
