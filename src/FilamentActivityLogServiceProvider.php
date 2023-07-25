@@ -2,7 +2,7 @@
 
 namespace pxlrbt\FilamentActivityLog;
 
-use Filament\PackageServiceProvider;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 
 class FilamentActivityLogServiceProvider extends PackageServiceProvider
