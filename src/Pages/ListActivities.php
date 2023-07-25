@@ -6,7 +6,6 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Repeater;
 use Filament\Resources\Form;
-use Filament\Resources\Pages\Concerns\HasRecordBreadcrumb;
 use Filament\Resources\Pages\Concerns\InteractsWithRecord;
 use Filament\Resources\Pages\Page;
 use Filament\Tables\Concerns\CanPaginateRecords;
@@ -16,7 +15,6 @@ abstract class ListActivities extends Page
 {
     use InteractsWithRecord;
     use CanPaginateRecords;
-    use HasRecordBreadcrumb;
 
     protected static string $view = 'filament-activity-log::pages.list-activities';
 
