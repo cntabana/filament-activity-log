@@ -9,7 +9,7 @@
                     <div class="flex justify-between">
                         <div class="flex gap-4 items-center">
                             @if ($activityItem->causer)
-                                <x-filament::user-avatar :user="$activityItem->causer" class="!w-7 !h-7" />
+                                <x-filament::avatar.user :user="$activityItem->causer" class="!w-7 !h-7" />
                                 <span class="font-bold">{{ $activityItem->causer?->name }}</span>
                             @endif
                         </div>
